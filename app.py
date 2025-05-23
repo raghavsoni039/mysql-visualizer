@@ -56,7 +56,7 @@ if st.button("Run Query"):
         cursor = mydb.cursor()
         cursor.execute(query)
 
-        if query.strip().lower().startswith("select"):
+        if query:
             rows = cursor.fetchall()
             columns = [desc[0] for desc in cursor.description]
             df = pd.DataFrame(rows, columns=columns)
